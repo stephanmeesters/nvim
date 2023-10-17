@@ -35,14 +35,22 @@ return {
         formatting = lsp_zero.cmp_format(),
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
+          ['<CR>'] = cmp.mapping.confirm({select = true}),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-f>'] = cmp_action.luasnip_jump_forward(),
           ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+          ['<Tab>'] = cmp_action.tab_complete(),
+          ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
         })
       })
     end
   },
+
+  -- {
+  --     "yioneko/nvim-vtsls",
+  --       lazy = true
+  -- },
 
   -- LSP
   {
@@ -56,6 +64,7 @@ return {
     config = function()
       -- This is where all the LSP shenanigans will live
       local lsp_zero = require('lsp-zero')
+      lsp_zero.default_keymaps()
       lsp_zero.extend_lspconfig()
 
       lsp_zero.on_attach(function(client, bufnr)
@@ -63,6 +72,9 @@ return {
         -- to learn the available actions
         lsp_zero.default_keymaps({buffer = bufnr})
       end)
+        
+      -- require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+      -- require("lspconfig").vtslsl.setup()
 
       require('mason-lspconfig').setup({
         ensure_installed = {},
