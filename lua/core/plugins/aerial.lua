@@ -14,7 +14,8 @@ return {
         vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
         vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
       end,
+      close_automatic_events = {"unfocus"}
     })
-    vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+    vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle<CR>")
   end
 }
