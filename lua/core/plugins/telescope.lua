@@ -1,8 +1,21 @@
 return {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
-      dependencies = { 'nvim-lua/plenary.nvim' },
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.4',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     event = "VeryLazy",
-     config = function()
+    config = function()
+        require('telescope').setup({
+            defaults = {
+                file_ignore_patterns = {
+                    '%.svg',
+                    '%.png',
+                    '%.jpg',
+                    '%.webp',
+                    '%.afdesign',
+                    '%.afphoto',
+                }
+            }
+        })
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
@@ -14,4 +27,4 @@ return {
         --vim.api.nvim_set_keymap('n', '<C-i>', ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
         vim.api.nvim_set_keymap('n', '<C-i>', ":Telescope file_browser<CR>", { noremap = true })
     end
-    }
+}
