@@ -20,6 +20,7 @@ return {
             lua = { "stylua" },
             python = { "isort", "black" },
             javascript = { { "prettierd", "prettier" } },
+            rust = { "rustfmt" },
         },
         -- Customize formatters
         formatters = {

@@ -5,7 +5,7 @@ return {
      "nvim-treesitter/nvim-treesitter",
      "nvim-tree/nvim-web-devicons"
   },
-  keys = {"<leader>a"},
+  event = "VeryLazy",
   config = function ()
     require("aerial").setup({
       -- optionally use on_attach to set keymaps when aerial has attached to a buffer
@@ -16,6 +16,5 @@ return {
       end,
       close_automatic_events = {"unfocus"}
     })
-    vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle<CR>")
   end
 }
