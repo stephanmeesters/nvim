@@ -16,7 +16,7 @@ function build()
     }
 
     vim.cmd(':wa') -- save all
-    vim.fn.jobstart("npm run compile", opts) -- run compile script
+    vim.fn.jobstart("npm run build", opts) -- run compile script
 end
 
 vim.api.nvim_set_keymap('n', '<leader>b', [[:lua build()<CR>]], { noremap = true, silent = false })
