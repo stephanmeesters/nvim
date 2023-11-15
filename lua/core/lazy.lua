@@ -8,6 +8,9 @@ local function grabPlugins()
     return files
 end
 
+local function isFdInstalled()
+    return vim.fn.executable('fd') == 1
+end
 
 local function bootstrap()
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -28,5 +31,10 @@ local function bootstrap()
 end
 
 bootstrap()
+
+if not isFdInstalled() then
+    error("Install fd to locate plugins")
+end
+
 local plugin_list = grabPlugins()
 require("lazy").setup(plugin_list)
