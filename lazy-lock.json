@@ -26,6 +26,7 @@
   "nvterm": { "branch": "main", "commit": "3e43be1d0ca60cc5e2dfc2d289b06577e7e57e98" },
   "onedark.nvim": { "branch": "master", "commit": "b9acd92ded2ba155867ca5af9d618e933d96e3b0" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
+  "telescope-lsp-handlers.nvim": { "branch": "main", "commit": "ddbfca73b13bb746831ac5a2ed7a1ce0cc862d62" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
   "toggleterm.nvim": { "branch": "main", "commit": "faee9d60428afc7857e0927fdc18daa6c409fa64" },
   "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
