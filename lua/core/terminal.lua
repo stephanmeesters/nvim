@@ -1,6 +1,6 @@
 function build()
     local opts = {
-        cwd = "/home/stephan/drawball-frontend",
+        cwd = vim.fn.getcwd(),
         on_stdout = function(_, data, _)
         end,
         on_stderr = function(_, data, _)
