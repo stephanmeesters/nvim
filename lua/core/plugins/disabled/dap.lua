@@ -1,0 +1,11 @@
+-- return {
+--     "rcarriga/nvim-dap-ui",
+--     opt = true,
+--     event = "BufReadPre",
+--     requires = {
+--         "mfussenegger/nvim-dap"
+--     },
+--     config = function()
+--         require("dapui").setup()
+--     end,
+-- }

@@ -88,30 +88,30 @@ return {
                 }
             })
 
-            local lsp_configurations = require('lspconfig.configs')
-            if not lsp_configurations.roslyn then
-                lsp_configurations.roslyn = {
-                    default_config = {
-                        name = 'roslyn',
-                        cmd = {
-                            "dotnet",
-                            "/home/stephan/compile/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Release/net7.0/Microsoft.CodeAnalysis.LanguageServer.dll",
-                            "--logLevel=Information",
-                            "--extensionLogDirectory=/tmp/"
-                        },
-                        filetypes = { 'cs' },
-                        root_dir = require('lspconfig.util').root_pattern('*.sln'),
-                    }
-                }
-            end
+            -- local lsp_configurations = require('lspconfig.configs')
+            -- if not lsp_configurations.roslyn then
+            --     lsp_configurations.roslyn = {
+            --         default_config = {
+            --             name = 'roslyn',
+            --             cmd = {
+            --                 "dotnet",
+            --                 "/home/stephan/compile/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Release/net7.0/Microsoft.CodeAnalysis.LanguageServer.dll",
+            --                 "--logLevel=Information",
+            --                 "--extensionLogDirectory=/tmp/"
+            --             },
+            --             filetypes = { 'cs' },
+            --             root_dir = require('lspconfig.util').root_pattern('*.sln'),
+            --         }
+            --     }
+            -- end
 
-            local on_attach = function(client, bufnr)
-                -- keymaps
-            end
+            -- local on_attach = function(client, bufnr)
+            --     -- keymaps
+            -- end
 
-            require("lspconfig").roslyn.setup({
-                on_attach = on_attach,
-            })
+            -- require("lspconfig").roslyn.setup({
+            --     on_attach = on_attach,
+            -- })
         end
     }
 }

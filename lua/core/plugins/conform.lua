@@ -19,10 +19,10 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             python = { "isort", "black" },
-            javascript = { { "prettier" } },
-            -- javascript = { "deno_fmt" },
+            javascript = { "prettier" },
             rust = { "rustfmt" },
             css = { "stylelint "},
+            ["_"] = { "xmllint" },
         },
         -- Customize formatters
         formatters = {
