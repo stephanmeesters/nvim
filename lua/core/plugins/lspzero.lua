@@ -51,6 +51,14 @@ return {
     --     "yioneko/nvim-vtsls",
     --       lazy = true
     -- },
+    --
+    -- {
+    --     "jmederosalvarado/roslyn.nvim"
+    -- },
+    -- {
+    --     name = "roslyn",
+    --     dir = "/home/stephan/lsp-plugin-roslyn"
+    -- },
 
     -- LSP
     {
@@ -87,6 +95,13 @@ return {
                     end,
                 }
             })
+            --
+            -- require("roslyn").setup({
+            --     dotnet_cmd = "dotnet",
+            --     roslyn_version = "4.9.0-3.23604.10",
+            --     on_attach = nil,
+            --     capabilities = vim.lsp.protocol.make_client_capabilities()
+            -- })
 
             -- local lsp_configurations = require('lspconfig.configs')
             -- if not lsp_configurations.roslyn then
