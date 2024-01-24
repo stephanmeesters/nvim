@@ -2,8 +2,11 @@ return {
     {
         "mfussenegger/nvim-dap",
         dependencies = { "rcarriga/nvim-dap-ui" },
+        event = "VeryLazy",
         config = function()
             local dap = require('dap')
+            -- local mason_registry = require("mason-registry")
+            -- local codelldb = mason_registry.get_package("codelldb")
 
             dap.adapters.coreclr = {
                 type = 'executable',
@@ -41,8 +44,6 @@ return {
                     type = 'codelldb',
                     request = 'launch',
                     program = function()
-                        -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                        -- return "/home/stephan/Documents/adventofcode/day13/target/debug/day13"
                         local output = vim.fn.systemlist("cargo build -q --message-format=json 2>1")
                         for _, l in ipairs(output) do
                             local json = vim.json.decode(l)
@@ -95,6 +96,7 @@ return {
     },
     {
         "rcarriga/nvim-dap-ui",
+        event = "VeryLazy",
         config = function()
             local dap, dapui = require("dap"), require("dapui")
 
@@ -116,6 +118,7 @@ return {
     },
     {
         "theHamsta/nvim-dap-virtual-text",
+        event = "VeryLazy",
         config = function()
             require("nvim-dap-virtual-text").setup {
                 enabled = true,                     -- enable this plugin (the default)
@@ -147,9 +150,11 @@ return {
     },
     {
         "rouge8/neotest-rust",
+        event = "VeryLazy",
     },
     {
         "nvim-neotest/neotest",
+        event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "antoinemadec/FixCursorHold.nvim",
