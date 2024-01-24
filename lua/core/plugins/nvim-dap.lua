@@ -1,6 +1,7 @@
 return {
     {
         "mfussenegger/nvim-dap",
+        dependencies = { "rcarriga/nvim-dap-ui" },
         config = function()
             local dap = require('dap')
 
@@ -85,7 +86,10 @@ return {
             vim.keymap.set("n", '<leader>dk', function() dap.continue() end)
             vim.keymap.set("n", '<leader>dl', function() dap.run_last() end)
             vim.keymap.set("n", '<leader>db', function() dap.toggle_breakpoint() end)
-            vim.keymap.set("n", '<leader>dx', function() dap.terminate() end)
+            vim.keymap.set("n", '<leader>dx', function()
+                dap.terminate()
+                require('dapui').close()
+            end)
             vim.keymap.set("n", '<leader>dg', function() dap.run_to_cursor() end)
         end
     },
@@ -112,7 +116,6 @@ return {
     },
     {
         "theHamsta/nvim-dap-virtual-text",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
         config = function()
             require("nvim-dap-virtual-text").setup {
                 enabled = true,                     -- enable this plugin (the default)
@@ -161,7 +164,8 @@ return {
             })
             vim.keymap.set("n", '<leader>du', function() neotest.run.run() end)
             -- vim.keymap.set("n", '<leader>du', function() neotest.run.run({ strategy = "dap" }) end)
-            vim.keymap.set("n", '<leader>dU', function() neotest.run.stop() end)
+            -- vim.keymap.set("n", '<leader>dU', function() neotest.run.stop() end)
+            vim.keymap.set("n", '<leader>dU', function() neotest.run.run(vim.fn.expand("%")) end)
         end
     },
 }
