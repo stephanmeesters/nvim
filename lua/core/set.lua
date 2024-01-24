@@ -23,7 +23,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
@@ -32,7 +32,7 @@ vim.opt.formatoptions:remove('c')
 vim.opt.formatoptions:remove('r')
 vim.opt.formatoptions:remove('o')
 
-vim.opt.colorcolumn = "120"
+-- vim.opt.colorcolumn = "120"
 
 vim.api.nvim_create_autocmd(
   "FileType", {
