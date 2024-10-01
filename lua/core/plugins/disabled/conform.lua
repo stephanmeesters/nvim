@@ -20,7 +20,7 @@ return {
             lua = { "stylua" },
             python = { "isort", "black" },
             javascript = { "prettier" },
-            rust = { "rustfmt" },
+            rust = { "prettier" },
             css = { "stylelint "},
             ["_"] = { "xmllint" },
         },

@@ -47,20 +47,6 @@ return {
         end
     },
 
-    -- {
-    --     "yioneko/nvim-vtsls",
-    --       lazy = true
-    -- },
-    --
-    -- {
-    --     "jmederosalvarado/roslyn.nvim"
-    -- },
-    -- {
-    --     name = "roslyn",
-    --     dir = "/home/stephan/lsp-plugin-roslyn"
-    -- },
-
-    -- LSP
     {
         'neovim/nvim-lspconfig',
         cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
@@ -81,66 +67,16 @@ return {
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
 
-            -- require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-            -- require("lspconfig").vtslsl.setup()
-
             require('mason-lspconfig').setup({
                 ensure_installed = {},
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
-                        -- (Optional) Configure lua language server for neovim
                         local lua_opts = lsp_zero.nvim_lua_ls()
                         require('lspconfig').lua_ls.setup(lua_opts)
                     end,
                 }
             })
-            --
-            -- require("roslyn").setup({
-            --     dotnet_cmd = "dotnet",
-            --     roslyn_version = "4.9.0-3.23604.10",
-            --     on_attach = nil,
-            --     capabilities = vim.lsp.protocol.make_client_capabilities()
-            -- })
-
-            -- local lsp_configurations = require('lspconfig.configs')
-            -- if not lsp_configurations.roslyn then
-            --     lsp_configurations.roslyn = {
-            --         default_config = {
-            --             name = 'roslyn',
-            --             cmd = {
-            --                 "dotnet",
-            --                 "/home/stephan/compile/roslyn/artifacts/bin/Microsoft.CodeAnalysis.LanguageServer/Release/net7.0/Microsoft.CodeAnalysis.LanguageServer.dll",
-            --                 "--logLevel=Information",
-            --                 "--extensionLogDirectory=/tmp/"
-            --             },
-            --             filetypes = { 'cs' },
-            --             root_dir = require('lspconfig.util').root_pattern('*.sln'),
-            --         }
-            --     }
-            -- end
-
-            -- local on_attach = function(client, bufnr)
-            --     -- keymaps
-            -- end
-
-            -- require("lspconfig").roslyn.setup({
-            --     on_attach = on_attach,
-            -- })
         end
     }
 }
-
--- vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
--- vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
--- vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
--- vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
--- vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
--- vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
--- vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
--- vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
--- vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
--- vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
--- vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
--- vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
--- vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)

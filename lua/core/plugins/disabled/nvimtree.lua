@@ -9,5 +9,6 @@ return {
     require("nvim-tree").setup {}
     vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", { noremap = true })
     vim.keymap.set("n", "<leader>m", ":NvimTreeFocus<CR>", { noremap = true })
+    vim.keymap.set("n", "<leader>s", ":NvimTreeFindFile<CR>", { noremap = true })
   end,
 }

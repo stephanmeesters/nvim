@@ -1,7 +1,17 @@
 return {
+{
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
+},
     {
         "mfussenegger/nvim-dap",
-        dependencies = { "rcarriga/nvim-dap-ui" },
+        dependencies = { "rcarriga/nvim-dap-ui"},
         event = "VeryLazy",
         config = function()
             local dap = require('dap')
@@ -164,13 +174,20 @@ return {
             local neotest = require("neotest")
             neotest.setup({
                 adapters = {
-                    require("neotest-rust")
+                    require("neotest-rust") {
+                        -- args = { "--no-capture" },
+                    }
                 }
             })
-            vim.keymap.set("n", '<leader>du', function() neotest.run.run() end)
+            -- vim.keymap.set("n", '<leader>du', function() neotest.run.run() end)
             -- vim.keymap.set("n", '<leader>du', function() neotest.run.run({ strategy = "dap" }) end)
             -- vim.keymap.set("n", '<leader>dU', function() neotest.run.stop() end)
-            vim.keymap.set("n", '<leader>dU', function() neotest.run.run(vim.fn.expand("%")) end)
+            vim.keymap.set("n", '<leader>dy', function() neotest.run.run(vim.fn.expand("%")) end)
+            vim.keymap.set("n", '<leader>du', function()
+                neotest.output_panel.open()
+                neotest.output_panel.clear()
+                neotest.run.run()
+            end)
         end
     },
 }
